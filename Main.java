@@ -28,7 +28,7 @@ public class Main {
 			
 			if(files[i].getName().endsWith(".java")) {
 				String fileName = files[i].getName();
-				String path = baseDir + fileName;
+				String path = baseDir + '/' + fileName;
 				String content = null;
 				System.out.println(fileName);
 				
