@@ -55,51 +55,35 @@ public class Main {
 	}
 	
 	
-	public static void parse(String source) {
+	public static void parse(String str) {
 		ASTParser parser = ASTParser.newParser(AST.JLS8);
+		parser.setSource(str.toCharArray());
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
-		parser.setSource(source.toCharArray());
-		
-		CompilationUnit cu = (CompilationUnit)parser.createAST(null);
-		
+ 
+		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+ 
 		cu.accept(new ASTVisitor() {
-			// set up hash maps and sets
-			Map<String, Integer> declareAmount = new HashMap<>();
-			Set<String> declareNames = new HashSet<String>();
-			Map<String, Integer> refAmount = new HashMap<>();
-			
-			/*check if the node's Java type can be added to the set
-			 * (i.e. not already listed before)
-			 * if so, add it to both the set and hash map
-			 * otherwise, increment the value in the hash map
-			*/
-			public boolean visit(VariableDeclarationFragment node) {
-				SimpleName name = node.getName();
-				if(this.declareNames.add(name.getIdentifier())) {
-					this.declareNames.add(name.getIdentifier());
-					declareAmount.put(name.getIdentifier(), 1);
-					refAmount.put(name.getIdentifier(), 0);
-				}
-				else {
-					declareAmount.put(name.getIdentifier(), declareAmount.get(name.getIdentifier())+1);
-				}
-				// do not continue through this node
-				return false;
+			Set names = new HashSet();
+			 
+			public boolean visit(SimpleType node) {
+				Name name = node.getName();
+				System.out.println("Reference of '" + name.getFullyQualifiedName() + "' at line"
+					+ cu.getLineNumber(name.getStartPosition()));
+				return true; // do not continue 
 			}
 			
-			/* Check if the simple name node exists in the set of declared java types
-			 * increment reference by 1 if so.
-			 */
-			public boolean visit(SimpleName node) {
-				if(this.declareNames.contains(node.getIdentifier())) {
-					declareAmount.put(node.getIdentifier(), refAmount.get(node.getIdentifier())+1);
-					System.out.println(node.getIdentifier() + ". Declaration"
-							+ "found: " + declareAmount.get(node.getIdentifier())
-							+ "; references found: "+  refAmount.get(node.getIdentifier()));
-				}
+			public boolean visit(PrimitiveType node) {
+				System.out.println("Reference of '" + node.getPrimitiveTypeCode() + "' at line"
+					+ cu.getLineNumber(node.getStartPosition()));
+				return true; // do not continue 
+			}
+			
+			public boolean visit(TypeDeclaration node) {
+				SimpleName name = node.getName();
+					System.out.println("Declaration of '" + name + "' at line "
+							+ cu.getLineNumber(node.getStartPosition()));
 				return true;
 			}
-			
 			
 		});
 		
