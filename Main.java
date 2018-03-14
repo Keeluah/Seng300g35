@@ -17,11 +17,12 @@ public class Main {
 		*/
 		String baseDir = args[0];
 		String typeSearched = args[1];
-		searchFiles(baseDir, typeSearched);
+		String message = searchFiles(baseDir, typeSearched);
+		printMessage(message);
 	}	
 
 	
-	public static void searchFiles(String baseDir, String typeSearched) {
+	public static String searchFiles(String baseDir, String typeSearched) {
 		//files is a File array that contains each file inside the directory specified.
 				File folder = new File(baseDir);
 				File[] files = folder.listFiles();
@@ -44,7 +45,8 @@ public class Main {
 				}
 				
 				//Print out message displaying all declarations and references. (End of program)
-				System.out.println(typeSearched + ". Declarations found: " + targetDeclare + ". References found: " + targetRef);
+				return typeSearched + ". Declarations found: " + targetDeclare + ". References found: " + targetRef;
+				//System.out.println(typeSearched + ". Declarations found: " + targetDeclare + ". References found: " + targetRef);
 	}
 	
 	public static String sourceToString(String path, String fileName) {
@@ -114,6 +116,10 @@ public class Main {
 			
 		});
 		
+	}
+	
+	public static void printMessage(String message) {
+		System.out.println(message);
 	}
 
 }
