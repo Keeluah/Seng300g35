@@ -41,7 +41,7 @@ public class Main {
 					System.out.println("An error occured accessing:" + fileName);
 				}
 				
-				System.out.print(content);
+				parse(content);
 			}
 			
 			
