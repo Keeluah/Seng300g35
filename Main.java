@@ -20,11 +20,9 @@ public class Main {
 	
 	public static void main (String args[]){
 		
-		Scanner input = new Scanner(System.in);
+		String baseDir = args[0];
+		String typeSearched = args[1];
 		
-		//System.out.print("Please enter the file path: ");
-		//String baseDir = input.nextLine();
-		String baseDir = "/home/ugb/walker.sakatch/Desktop/SENG 300/GRPAssign1/";
 		File folder = new File(baseDir);
 		File[] files = folder.listFiles();
 		
