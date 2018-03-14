@@ -14,15 +14,15 @@ import org.eclipse.jdt.core.*;
 import org.eclipse.jdt.core.dom.*;
 
 public class Main {
-	
 	static int targetDeclare = 0;
 	static int targetRef = 0;
-	
 	public static void main (String args[]){
 		
 		String baseDir = args[0];
 		String typeSearched = args[1];
 		
+		//System.out.println(baseDir);
+		//System.out.println(typeSearched);
 		File folder = new File(baseDir);
 		File[] files = folder.listFiles();
 		
@@ -43,16 +43,6 @@ public class Main {
 				
 				parse(content, typeSearched);
 			}
-			
-			
-			/*if(files[i].getName().endsWith(".java")) {
-			
-				parse(files[i]);
-			}*/
-			
-			
-
-			//parse("public class Bar {}");
 		}
 	}
 	
