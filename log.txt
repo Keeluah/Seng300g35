@@ -1,0 +1,85 @@
+commit 279f7f2214bd5018fdeccafb3a48ed38b90971c4
+Author: CS\brandt.davis <brandt.davis@ucalgary.ca>
+Date:   Tue Mar 13 21:46:22 2018 -0600
+
+    added test file
+
+commit 08174f5343a37f7684b50553f2e33b0e08576bb1
+Author: MrBabalafe <walkersakatch@gmail.com>
+Date:   Tue Mar 13 20:18:50 2018 -0600
+
+    Add printMessage method
+
+commit c0e6db03e826b230056c2096a212afaa583215af
+Author: MrBabalafe <walkersakatch@gmail.com>
+Date:   Tue Mar 13 20:14:16 2018 -0600
+
+    Create several methods and reorganize code
+
+commit b3c70e49ca10b85d53535463dd3b40959ffb69a1
+Author: MrBabalafe <walkersakatch@gmail.com>
+Date:   Tue Mar 13 18:49:05 2018 -0600
+
+    Add command line args
+
+commit b43fbe8dba5372a94385f5c7f5fd5abde2f94c38
+Author: brandt-davis <37000680+brandt-davis@users.noreply.github.com>
+Date:   Tue Mar 13 18:47:15 2018 -0600
+
+    Update Main.java
+
+commit fb60024c952d5a368065267f077d537d41a3b5f2
+Author: brandt-davis <37000680+brandt-davis@users.noreply.github.com>
+Date:   Tue Mar 13 18:45:28 2018 -0600
+
+    Update Main.java
+    
+    replaced "System.out.print(content)" with "parse(content)"
+
+commit 2e831ad580c74bf06d6ffa179dbf9487a9f1b5a3
+Author: brandt-davis <37000680+brandt-davis@users.noreply.github.com>
+Date:   Tue Mar 13 18:43:25 2018 -0600
+
+    Update Main.java
+
+commit 7cf7bf990d59a2fb6dac9a1b55d95b832f36322e
+Author: Kevin Ng <32828358+Keeluah@users.noreply.github.com>
+Date:   Tue Mar 13 18:35:48 2018 -0600
+
+    Update Main.java
+
+commit 1c35287e102f13d5a75907b24dc68b4f8f1005e3
+Author: Kevin Ng <32828358+Keeluah@users.noreply.github.com>
+Date:   Tue Mar 13 17:48:01 2018 -0600
+
+    Update Main.java
+
+commit 48d03cc8206b24c02496a1ba9d41a5fae5ee4c4e
+Author: brandt-davis <37000680+brandt-davis@users.noreply.github.com>
+Date:   Tue Mar 13 13:41:22 2018 -0600
+
+    Update Main.java
+
+commit 844a68b181d286824211f8a3a465ac52ca8d5de6
+Author: Kevin Ng <32828358+Keeluah@users.noreply.github.com>
+Date:   Tue Mar 13 13:36:49 2018 -0600
+
+    Update Main.java
+
+commit 13170164d0c9fd6fd9f77d8965300f88dbb6d942
+Author: walker.sakatch <walker.sakatch@zone46-wa.cs.ucalgary.ca>
+Date:   Tue Mar 13 13:05:53 2018 -0600
+
+    Store contents of file into a String
+
+commit 596c386449311ccddd9ac5dc6b2b3011af5a8b7d
+Author: walker.sakatch <walker.sakatch@zone46-ec.cs.ucalgary.ca>
+Date:   Mon Mar 12 14:52:56 2018 -0600
+
+    Add main.java
+
+commit 7900d2465cd95d2a179a70897f162080ec35bbbc
+Author: Kevin Ng <32828358+Keeluah@users.noreply.github.com>
+Date:   Fri Mar 2 12:31:17 2018 -0700
+
+    Initial commit
