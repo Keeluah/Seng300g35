@@ -41,7 +41,7 @@ public class Main {
 					System.out.println("An error occured accessing:" + fileName);
 				}
 				
-				parse(content);
+				parse(content, typeSearched);
 			}
 			
 			
