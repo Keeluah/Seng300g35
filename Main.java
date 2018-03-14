@@ -14,6 +14,10 @@ import org.eclipse.jdt.core.*;
 import org.eclipse.jdt.core.dom.*;
 
 public class Main {
+	
+	static int targetDeclare = 0;
+	static int targetRef = 0;
+	
 	public static void main (String args[]){
 		
 		Scanner input = new Scanner(System.in);
@@ -54,39 +58,43 @@ public class Main {
 		}
 	}
 	
-	
-	public static void parse(String str) {
+	public static void parse(String sauce, String target) {
 		ASTParser parser = ASTParser.newParser(AST.JLS8);
-		parser.setSource(str.toCharArray());
+		parser.setSource(sauce.toCharArray());
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
- 
-		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+		
+		
+		CompilationUnit cu = (CompilationUnit) parser.createAST(null);
  
 		cu.accept(new ASTVisitor() {
-			Set names = new HashSet();
-			 
+				
 			public boolean visit(SimpleType node) {
-				Name name = node.getName();
-				System.out.println("Reference of '" + name.getFullyQualifiedName() + "' at line"
-					+ cu.getLineNumber(name.getStartPosition()));
-				return true; // do not continue 
+				String name = node.getName().getFullyQualifiedName();
+				if(name.equals(target)){
+					targetRef += 1;
+				}
+				return true;
 			}
 			
 			public boolean visit(PrimitiveType node) {
-				System.out.println("Reference of '" + node.getPrimitiveTypeCode() + "' at line"
-					+ cu.getLineNumber(node.getStartPosition()));
-				return true; // do not continue 
+				String name = node.getPrimitiveTypeCode().toString();
+				if(name.equals(target)){
+					targetRef += 1;
+				}
+				return true;
 			}
 			
 			public boolean visit(TypeDeclaration node) {
-				SimpleName name = node.getName();
-					System.out.println("Declaration of '" + name + "' at line "
-							+ cu.getLineNumber(node.getStartPosition()));
+				String name = node.getName().getIdentifier();
+				if(name.equals(target)){
+					targetDeclare += 1;
+				}
 				return true;
 			}
 			
 		});
 		
+		System.out.println(target + ". Declarations found: " + targetDeclare + "; references found: " + targetRef);
 	}
 
 }
